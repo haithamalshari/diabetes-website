@@ -1,26 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Machine Learning Model to Diabetes Diagnosis Based on Health Behaviors
-    </title>
-  </head>
-  <body>
-    <main>
-      <div class="head">Welcome...</div>
-      <form action="" method="POST">
-        <div class="age">
-          <input type="text" placeholder="Age" />
-        </div>
-        <div class="height">
-          <input type="text" placeholder="Height" />
-        </div>
-        <div class="workout">
-          <input type="text" placeholder="Workouts minutes per week" />
-        </div>
-      </form>
-    </main>
-  </body>
-</html>
+{% extends "diabetes/layout.html" %} 
+{% load static %}
+{% block head %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">{% endblock %}
+{% block body %}
+<div class="head"></div>
+<main>
+  <div class="title">
+    <h1>Answer the Following</h1>
+  </div>
+  <section class="dataform">
+    <form action="{% url 'result' %}" method="POST">
+      {% csrf_token %}
+      <div class="age">
+        <label for="age1">Enter Your Age:</label><br />
+        <input type="number" min="18" name="age1" placeholder="Age" value="18" />
+      </div>
+       <div class="gender">
+        <label for="yes_no_radio">Gender :   </label>
+        <input type="radio" name="gender1" value="0" checked>Male    </input>
+        <input type="radio" name="gender1" value="1">Female</input>
+      </div>
+      <div class="race">
+        <label for="race1">Race:</label><br />
+        <select name="race1">
+        <option value="1">Mexican American</option>
+        <option value="2">Other Hispanic</option>
+        <option value="3">Non-Hispanic White</option>
+        <option value="4">Non-Hispanic Black</option>
+        <option value="5">Other Race - Including Multi-Racia</option>
+        </select>
+      </div>
+      <div class="marital">
+        <label for="marital1">Marital Status:</label><br />
+        <select name="marital1">
+        <option value="1">Married</option>
+        <option value="2">Widowed</option>
+        <option value="3">Divorced</option>
+        <option value="4">Separated</option>
+        <option value="5">Never married</option>
+        <option value="6">Living with partner</option>
+        <option value="7">Serious relationshi</option>
+        </select>
+      </div>
+      <div class="edu">
+        <label for="edu1">Education Level:</label><br />
+        <select name="edu1">
+        <option value="1">Less than 9th grade</option>
+        <option value="2">9­-11th grade (Includes 12th grade with no diploma)</option>
+        <option value="3">High school graduate/GED or equivalent</option>
+        <option value="4">Some college or AA degree</option>
+        <option value="5">College graduate or above</option>
+        </select>
+      </div>
+      <div class="smoking">
+        <label for="smoking1">Smoking Status:</label><br />
+        <select name="smoking1">
+        <option value="1">Heavy current smoker</option>
+        <option value="2">Light current smoker</option>
+        <option value="3">Former smoker</option>
+        <option value="3">Not a smoker</option>
+        </select>
+      </div>
+      <div class="weight">
+        <label for="weight1">Enter Your weight (Kg):</label><br />
+        <input type="number" min="40" name="weight1" placeholder="Height" value="40"/>
+      </div>
+      <div class="height">
+        <label for="height1">Enter Your Height (cm):</label><br />
+        <input type="number" min="140" name="height1" placeholder="Height" value="140"/>
+      </div>
+      <div class="workout">
+        <label for="workout1"
+          >How many minutes do you spend in workouts per week:</label
+        ><br />
+        <input
+          type="number"
+          name="workout1"
+          min="0"
+          placeholder="Workouts minutes per week"
+          value="0"
+        />
+      </div>
+      <div class="preg">
+        <label for="yes_no_radio">For Female: Are you pregnant?</label>
+        <p>
+        <input type="radio" name="preg1" value="1">Yes</input>
+        <input type="radio" name="preg1" value="2" checked>No</input>
+        </p>
+      </div>
+      <div class="alcohol">
+        <label for="yes_no_radio">Do you consume any alcoholic beverages regularly?</label>
+        <p>
+        <input type="radio" name="alcoho1" value="1">Yes</input>
+        <input type="radio" name="alcoho1" value="0" checked>No</input>
+        </p>
+      </div>
+      <div class="bp">
+        <label for="yes_no_radio">Do you have Hypertension (Blood pressure)?</label>
+        <p>
+        <input type="radio" name="bp1" value="1">Yes</input>
+        <input type="radio" name="bp1" value="0" checked>No</input>
+        </p>
+      </div>
+      <div class="chol">
+        <label for="yes_no_radio">Is your Cholesterol consumtion above the recommended?</label>
+        <p>
+        <input type="radio" name="chol1" value="1">Yes</input>
+        <input type="radio" name="chol1" value="0" checked>No</input>
+        </p>
+      </div>
+      <div class="suger">
+        <label for="yes_no_radio">Is your Sugar consumtion above the recommended?</label>
+        <p>
+        <input type="radio" name="suger1" value="1">Yes</input>
+        <input type="radio" name="suger1" value="0" checked>No</input>
+        </p>
+      </div>
+      <div class="fat">
+        <label for="yes_no_radio">Is your fat consumtion above the recommended?</label>
+        <p>
+        <input type="radio" name="fat1" value="1">Yes</input>
+        <input type="radio" name="fat1" value="0" checked>No</input>
+        </p>
+      </div>
+      <!-- <div class="submit">
+        <button>Submit</button>
+      </div> -->
+      <div class="submit">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </div>
+    </form>
+  </section>
+</main>
+<div class="bottom">
+
+</div>
+{% endblock %}

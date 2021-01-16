@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* padding: 10rem; */
+  line-height: 1.8;
+  background-color: khaki;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  color: rgb(49, 49, 49);
+}
+.head {
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(148, 148, 148), khaki);
+  height: 20rem;
+}
+
+section {
+  width: 60vw;
+  margin: 1rem;
+  padding: 1rem;
+  padding-left: 2rem;
+  border: 1px solid rgba(255, 253, 233, 0.712);
+  background: linear-gradient(
+    to right top,
+    rgb(255, 248, 187),
+    rgb(253, 250, 218)
+  );
+  box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2);
+  border-radius: 0.5rem;
+  padding-top: 20px;
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.secleft {
+  text-align: right;
+  flex: 3;
+}
+
+.secright {
+  padding-left: 2rem;
+  color: brown;
+  flex: 2;
+}
+
+.back {
+  margin: 1rem;
+  width: 10rem;
+  background: linear-gradient(
+    to right top,
+    rgb(252, 245, 180),
+    rgb(255, 251, 206)
+  );
+  box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 253, 233, 0.712);
+  padding: 16px;
+  margin-bottom: 10rem;
+}
+
+.back:hover {
+  background: linear-gradient(
+    to right top,
+    rgb(255, 250, 201),
+    rgb(253, 251, 224)
+  );
+}
+
+.back-btn {
+  font-weight: 700;
+  color: rgb(49, 49, 49);
+  padding-left: 1rem;
+  /* padding: 2rem; */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bottom {
+  width: 100%;
+  /* background: rgb(66, 66, 66); */
+  /* background: linear-gradient(to top, rgb(148, 148, 148), khaki); */
+  height: 10rem;
+}

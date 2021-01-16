@@ -1,0 +1,26 @@
+{% extends "diabetes/layout.html" %} {% load static %} {% block head %}
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}" />
+{% endblock %} {% block body %}
+<div class="head"></div>
+<main>
+  <section>
+    <div class="secleft">
+      <h1>Our Model Predict that you are :</h1>
+      <h1>Your propabilty of being diabetic is :</h1>
+    </div>
+    <div class="secright">
+      <h1 class="result">{{ result.pred }}</h1>
+      <h1 class="result">{{ result.predprob }} %</h1>
+    </div>
+  </section>
+  <div class="back">
+    <a href="{% url 'index' %}" class="back-btn">Try Again</a>
+  </div>
+</main>
+<div class="bottom"></div>
+{% endblock %}
