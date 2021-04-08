@@ -7,7 +7,7 @@
 body {
   /* padding: 10rem; */
   line-height: 1.8;
-  background-color: khaki;
+  background-color: rgb(241, 241, 241);
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
@@ -15,11 +15,11 @@ body {
   align-items: center;
   color: rgb(49, 49, 49);
 }
-.head {
+/* .head {
   width: 100%;
   background: linear-gradient(to bottom, rgb(148, 148, 148), khaki);
   height: 20rem;
-}
+} */
 
 section {
   width: 60vw;
@@ -27,11 +27,7 @@ section {
   padding: 1rem;
   padding-left: 2rem;
   border: 1px solid rgba(255, 253, 233, 0.712);
-  background: linear-gradient(
-    to right top,
-    rgb(255, 248, 187),
-    rgb(253, 250, 218)
-  );
+  background: rgb(241, 241, 241);
   box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2);
   border-radius: 0.5rem;
   padding-top: 20px;

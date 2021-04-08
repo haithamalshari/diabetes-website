@@ -4,9 +4,13 @@
   href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylers.css' %}" />
 {% endblock %} {% block body %}
-<div class="head"></div>
+<div class="head">Machine Learning Model to predict Diabetes</div>
+<div class="title">
+  <h1>Result</h1>
+  <img src="{% static 'imgs\form.svg' %}" class="imghead" />
+</div>
 <main>
   <section>
     <div class="secleft">
@@ -22,5 +26,11 @@
     <a href="{% url 'index' %}" class="back-btn">Try Again</a>
   </div>
 </main>
-<div class="bottom"></div>
+<div class="bottom">
+  <div class="line"></div>
+  <p>
+    Developed by <a href="http://haithamalshari.github.io/">Haithm Alshari</a>.
+    All rights reserved.
+  </p>
+</div>
 {% endblock %}

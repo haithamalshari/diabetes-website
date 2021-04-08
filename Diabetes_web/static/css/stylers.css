@@ -16,14 +16,6 @@ body {
   color: rgb(48, 1, 92);
 }
 
-main {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-
 .head {
   padding-top: 1rem;
   width: 60%;
@@ -31,6 +23,14 @@ main {
   font-size: 2rem;
   color: rgb(189, 189, 189);
   text-align: center;
+}
+
+main {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .title {
@@ -55,78 +55,56 @@ main {
 }
 
 section {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  align-items: center;
-}
-
-section div {
   width: 60vw;
   margin: 1rem;
   padding: 1rem;
   padding-left: 2rem;
   border: 2px solid rgba(25, 2, 46, 0.651);
   background: rgb(241, 241, 241);
-  /* box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2); */
   border-radius: 0.5rem;
   padding-top: 20px;
+  display: flex;
+  margin-bottom: 5rem;
 }
 
-input[type="number"] {
-  background: rgb(249, 249, 249);
-  border-radius: 0.3rem;
-  border: 1px solid rgb(231, 203, 167);
-  padding: 16px 32px;
-  margin: 4px 2px;
-  cursor: pointer;
+.secleft {
+  text-align: right;
+  flex: 3;
 }
 
-select {
-  background: rgb(249, 249, 249);
-  border-radius: 0.3rem;
-  border: 1px solid rgb(231, 203, 167);
-  padding: 16px 32px;
-  margin: 4px 2px;
-  cursor: pointer;
+.secright {
+  padding-left: 2rem;
+  color: rgb(214, 37, 81);
+  flex: 2;
 }
 
-.submit {
-  padding-left: 0px;
-  background: none;
-  border: none;
-  box-shadow: none;
-}
-
-input[type="submit"],
-input[type="reset"] {
+.back {
+  margin-top: 1rem;
+  margin-left: 12%;
+  align-self: baseline;
+  /* width: 10rem; */
+  /* position: static; */
   background: rgb(247, 220, 185);
   /* box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2); */
   border-radius: 0.5rem;
   border: 0px solid rgba(255, 253, 233, 0.712);
-  padding: 16px 32px;
   text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
+  padding: 16px;
+  margin-bottom: 2rem;
 }
 
-input[type="submit"]:hover,
-input[type="reset"]:hover {
+.back:hover {
   background: rgb(252, 230, 201);
 }
 
-input[type="radio"] {
-  /* background: rgb(249, 249, 249);
-  border-radius: 0.3rem;
-  border: 1px solid rgb(231, 203, 167); */
-  /* padding: 16px 32px; */
-  margin: 4px 10px;
-  /* cursor: pointer; */
-}
-
-.preg {
-  display: none;
+.back-btn {
+  font-weight: 700;
+  display: block;
+  color: rgb(49, 49, 49);
+  /* padding-left: 1rem; */
+  /* padding: 2rem; */
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .bottom {

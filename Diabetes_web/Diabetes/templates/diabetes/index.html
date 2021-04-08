@@ -3,12 +3,14 @@
 {% block head %}
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">{% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<script src="{% static 'js\script.js' %}"></script>{% endblock %}
 {% block body %}
-<div class="head"></div>
+<div class="head">Machine Learning Model to predict Diabetes</div>
 <main>
   <div class="title">
     <h1>Answer the Following</h1>
+    <img src="{% static 'imgs\form.svg' %}" class="imghead">
   </div>
   <section class="dataform">
     <form action="{% url 'result' %}" method="POST">
@@ -19,8 +21,8 @@
       </div>
        <div class="gender">
         <label for="yes_no_radio">Gender :   </label>
-        <input type="radio" name="gender1" value="0" checked>Male    </input>
-        <input type="radio" name="gender1" value="1">Female</input>
+        <input type="radio" id="gender1" name="gender1" value="0" checked onchange ="genderSel()">Male</input>
+        <input type="radio" id="gender2" name="gender1" value="1" onchange ="genderSel()">Female</input>
       </div>
       <div class="race">
         <label for="race1">Race:</label><br />
@@ -83,11 +85,11 @@
           value="0"
         />
       </div>
-      <div class="preg">
-        <label for="yes_no_radio">For Female: Are you pregnant?</label>
+      <div class="preg" id="preg">
+        <label for="yes_no_radio">Are you pregnant?</label>
         <p>
-        <input type="radio" name="preg1" value="1">Yes</input>
-        <input type="radio" name="preg1" value="2" checked>No</input>
+        <input type="radio" id="preg1" name="preg1" value="1">Yes</input>
+        <input type="radio" id="preg1" name="preg1" value="2" checked>No</input>
         </p>
       </div>
       <div class="alcohol">
@@ -136,6 +138,10 @@
   </section>
 </main>
 <div class="bottom">
-
+  <div class="line"></div>
+  <p>
+    Developed by <a href="http://haithamalshari.github.io/">Haithm Alshari</a>.
+    All rights reserved.
+  </p>
 </div>
 {% endblock %}
