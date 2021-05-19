@@ -1,6 +1,6 @@
 {% extends "diabetes/layout.html" %} {% load static %} {% block head %}
 <title>
-  Machine Learning Model to Diabetes Diagnosis Based on Health Behaviors
+  Sağlık Davranışlarına Dayalı Diyabet Teşhisi için Makine Öğrenimi Modeli
 </title>
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link
@@ -9,16 +9,16 @@
 />
 <link rel="stylesheet" type="text/css" href="{% static 'css/stylers.css' %}" />
 {% endblock %} {% block body %}
-<div class="head">Machine Learning Model to predict Diabetes</div>
+<div class="head">Diyabeti tahmin etmek için Makine Öğrenimi Modeli</div>
 <div class="title">
-  <h1>Result</h1>
+  <h1>Sonuç</h1>
   <img src="{% static 'imgs\form.svg' %}" class="imghead" />
 </div>
 <main>
   <section>
     <div class="secleft">
-      <h1>Our Model Predict that you are :</h1>
-      <h1>Your propabilty of being diabetic is :</h1>
+      <h1>Modelimizin Siz olduğunuzu tahmini :</h1>
+      <h1>Diyabetik olma olasılığınız :</h1>
     </div>
     <div class="secright">
       <h1 class="result">{{ result.pred }}</h1>
@@ -26,14 +26,14 @@
     </div>
   </section>
   <div class="back">
-    <a href="{% url 'index' %}" class="back-btn">Try Again</a>
+    <a href="{% url 'index_tr' %}" class="back-btn">Tekrar deneyin</a>
   </div>
 </main>
 <div class="bottom">
   <div class="line"></div>
   <p>
-    Developed by <a href="http://haithamalshari.github.io/">Haithm Alshari</a>.
-    All rights reserved.
+    <a href="http://haithamalshari.github.io/">Haithm Alshari</a> tarafından
+    geliştirilmiş. Tüm hakları Saklıdır.
   </p>
 </div>
 {% endblock %}

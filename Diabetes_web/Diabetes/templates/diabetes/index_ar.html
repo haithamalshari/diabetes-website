@@ -1,0 +1,155 @@
+{% extends "diabetes/layout.html" %} 
+{% load static %}
+{% block head %}
+<title>
+      نموذج التعلم الآلي لتشخيص مرض السكري على أساس السلوكيات الصحية
+</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_ar.css' %}">
+<script src="{% static 'js\script.js' %}"></script>{% endblock %}
+{% block body %}
+<div class="lan">
+    <a href="{% url 'index' %}">English</a>
+    <a href="{% url 'index_ar' %}">العربية</a>
+    <a href="{% url 'index_tr' %}">Türkçe</a>
+</div>   
+<div class="head">نموذج تعلم الآلي للتنبؤ بمرض السكري</div>
+<main>
+  <div class="title">
+    <img src="{% static 'imgs\form.svg' %}" class="imghead">
+    <h1>أجب عن الاتي</h1>
+  </div>
+  <section class="dataform">
+    <form action="{% url 'result_ar' %}" method="POST">
+      {% csrf_token %}
+      <div class="age">
+        <label for="age1">أدخل عمرك:</label><br />
+        <input type="number" min="18" name="age1" placeholder="Age" value="18" />
+      </div>
+       <div class="gender">
+        <label for="yes_no_radio">الجنس :   </label>
+        <input type="radio" id="gender1" name="gender1" value="0" checked onchange ="genderSel()">ذكر</input>
+        <input type="radio" id="gender2" name="gender1" value="1" onchange ="genderSel()">أنثى</input>
+      </div>
+      <div class="race">
+        <label for="race1">العرق:</label><br />
+        <select name="race1">
+        <option value="1">مكسيكي امريكي</option>
+        <option value="2">أصل اسباني</option>
+        <option value="3">ابيض غير اسباني</option>
+        <option value="4">اسود غير اسباني</option>
+        <option value="5">عرق آخر - بما في ذلك متعدد الأعراق</option>
+        </select>
+      </div>
+      <div class="marital">
+        <label for="marital1">الحالة الاجتماعية:</label><br />
+        <select name="marital1">
+        <option value="1">متزوج</option>
+        <option value="2">ارمل</option>
+        <option value="3">مطلق</option>
+        <option value="4">منفصل</option>
+        <option value="5">غير متزوج</option>
+        <option value="6">يعيش مع شريك</option>
+        <option value="7">علاقة جدية</option>
+        </select>
+      </div>
+      <div class="edu">
+        <label for="edu1">المستوى التعليمي:</label><br />
+        <select name="edu1">
+        <option value="1">أقل من الصف التاسع</option>
+        <option value="2">الصف التاسع إلى الحادي عشر (يشمل الصف الثاني عشر بدون دبلوم)</option>
+        <option value="3">خريج الثانوية العامة / GED أو ما يعادلها</option>
+        <option value="4">جزء من درجة الجامعة او AA</option>
+        <option value="5">خريج الكلية أو أعلى</option>
+        </select>
+      </div>
+      <div class="smoking">
+        <label for="smoking1">حالة التدخين:</label><br />
+        <select name="smoking1">
+        <option value="1">مدخن حالي ثقيل</option>
+        <option value="2">مدخن حالي خفيف</option>
+        <option value="3">مدخن سابق</option>
+        <option value="3">غير مدخن</option>
+        </select>
+      </div>
+      <div class="weight">
+        <label for="weight1">ادخل وزنك (كليوجرام):</label><br />
+        <input type="number" min="40" name="weight1" placeholder="Height" value="40"/>
+      </div>
+      <div class="height">
+        <label for="height1">ادخل طولك (سنتيمتر):</label><br />
+        <input type="number" min="140" name="height1" placeholder="Height" value="140"/>
+      </div>
+      <div class="workout">
+        <label for="workout1"
+          >كم دقيقة تقضي في التدريبات في الأسبوع:</label
+        ><br />
+        <input
+          type="number"
+          name="workout1"
+          min="0"
+          placeholder="Workouts minutes per week"
+          value="0"
+        />
+      </div>
+      <div class="preg" id="preg">
+        <label for="yes_no_radio">هل أنتِ حامل؟</label>
+        <p>
+        <input type="radio" id="preg1" name="preg1" value="1">نعم</input>
+        <input type="radio" id="preg1" name="preg1" value="2" checked>لا</input>
+        </p>
+      </div>
+      <div class="alcohol">
+        <label for="yes_no_radio">هل تستهلك أي مشروبات كحولية بانتظام؟</label>
+        <p>
+        <input type="radio" name="alcoho1" value="1">نعم</input>
+        <input type="radio" name="alcoho1" value="0" checked>لا</input>
+        </p>
+      </div>
+      <div class="bp">
+        <label for="yes_no_radio">هل تعاني من ارتفاع ضغط الدم؟</label>
+        <p>
+        <input type="radio" name="bp1" value="1">نعم</input>
+        <input type="radio" name="bp1" value="0" checked>لا</input>
+        </p>
+      </div>
+      <div class="chol">
+        <label for="yes_no_radio">هل استهلاكك للكوليسترول أعلى من الموصى به؟</label>
+        <p>
+        <input type="radio" name="chol1" value="1">نعم</input>
+        <input type="radio" name="chol1" value="0" checked>لا</input>
+        </p>
+      </div>
+      <div class="suger">
+        <label for="yes_no_radio">هل استهلاكك للسكر أعلى من الموصى به؟</label>
+        <p>
+        <input type="radio" name="suger1" value="1">نعم</input>
+        <input type="radio" name="suger1" value="0" checked>لا</input>
+        </p>
+      </div>
+      <div class="fat">
+        <label for="yes_no_radio">هل استهلاكك للدهون أعلى من الموصى به؟</label>
+        <p>
+        <input type="radio" name="fat1" value="1">نعم</input>
+        <input type="radio" name="fat1" value="0" checked>لا</input>
+        </p>
+      </div>
+      <!-- <div class="submit">
+        <button>Submit</button>
+      </div> -->
+      <div class="submit">
+        <input type="submit" value="تقديم">
+        <input type="reset" value="إعادة ضبط">
+      </div>
+    </form>
+  </section>
+</main>
+<div class="bottom">
+  <div class="line"></div>
+  <p>
+    تم التطوير من قبل <a href="http://haithamalshari.github.io/">هيثم الشعري</a>.
+    كل الحقوق محفوظة.
+  </p>
+</div>
+{% endblock %}

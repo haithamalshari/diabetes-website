@@ -1,0 +1,155 @@
+{% extends "diabetes/layout.html" %} 
+{% load static %}
+{% block head %}
+<title>
+      Sağlık Davranışlarına Dayalı Diyabet Teşhisi için Makine Öğrenimi Modeli
+</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_tr.css' %}">
+<script src="{% static 'js\script.js' %}"></script>{% endblock %}
+{% block body %}
+<div class="lan">
+    <a href="{% url 'index' %}">English</a>
+    <a href="{% url 'index_ar' %}">العربية</a>
+    <a href="{% url 'index_tr' %}">Türkçe</a>
+</div>  
+<div class="head">Diyabeti tahmin etmek için Makine Öğrenimi Modeli</div>
+<main>
+  <div class="title">
+    <h1>Aşağıdaki cevap</h1>
+    <img src="{% static 'imgs\form.svg' %}" class="imghead">
+  </div>
+  <section class="dataform">
+    <form action="{% url 'result_tr' %}" method="POST">
+      {% csrf_token %}
+      <div class="age">
+        <label for="age1">Yaşınızı girin:</label><br />
+        <input type="number" min="18" name="age1" placeholder="Age" value="18" />
+      </div>
+       <div class="gender">
+        <label for="yes_no_radio">Cinsiyet :   </label>
+        <input type="radio" id="gender1" name="gender1" value="0" checked onchange ="genderSel()">Erkek</input>
+        <input type="radio" id="gender2" name="gender1" value="1" onchange ="genderSel()">Kadın</input>
+      </div>
+      <div class="race">
+        <label for="race1">Irk:</label><br />
+        <select name="race1">
+        <option value="1">Meksikalı Amerikalı</option>
+        <option value="2">Diğer Hispanik</option>
+        <option value="3">Hispanik Olmayan Beyaz</option>
+        <option value="4">Hispanik Olmayan Siyah</option>
+        <option value="5">Diğer Irk - Çok Irklılar Dahil</option>
+        </select>
+      </div>
+      <div class="marital">
+        <label for="marital1">Medeni Durum:</label><br />
+        <select name="marital1">
+        <option value="1">Evli</option>
+        <option value="2">Dul</option>
+        <option value="3">Boşanmış</option>
+        <option value="4">Ayrılmış</option>
+        <option value="5">Hiç evlenmemiş</option>
+        <option value="6">Partnerle yaşamak</option>
+        <option value="7">Ciddi ilişki</option>
+        </select>
+      </div>
+      <div class="edu">
+        <label for="edu1">Eğitim Seviyesi:</label><br />
+        <select name="edu1">
+        <option value="1">9. sınıftan az</option>
+        <option value="2">9-11. Sınıf (Diplomasız 12. sınıf dahil)</option>
+        <option value="3">Lise mezunu / GED veya eşdeğeri</option>
+        <option value="4">Bazı kolej veya AA derecesi</option>
+        <option value="5">Üniversite mezunu veya üstü</option>
+        </select>
+      </div>
+      <div class="smoking">
+        <label for="smoking1">Sigara İçme Durumu:</label><br />
+        <select name="smoking1">
+        <option value="1">Halen ağır tiryaki</option>
+        <option value="2">Halen hafif tiryaki</option>
+        <option value="3">Eski içici</option>
+        <option value="3">Sigara içmeyen</option>
+        </select>
+      </div>
+      <div class="weight">
+        <label for="weight1">Kilonuzu (Kg) girin:</label><br />
+        <input type="number" min="40" name="weight1" placeholder="Height" value="40"/>
+      </div>
+      <div class="height">
+        <label for="height1">Boyunuzu Girin (cm):</label><br />
+        <input type="number" min="140" name="height1" placeholder="Height" value="140"/>
+      </div>
+      <div class="workout">
+        <label for="workout1"
+          >Haftada kaç dakika egzersiz yapıyorsunuz:</label
+        ><br />
+        <input
+          type="number"
+          name="workout1"
+          min="0"
+          placeholder="Workouts minutes per week"
+          value="0"
+        />
+      </div>
+      <div class="preg" id="preg">
+        <label for="yes_no_radio">Hamile misiniz?</label>
+        <p>
+        <input type="radio" id="preg1" name="preg1" value="1">Evet</input>
+        <input type="radio" id="preg1" name="preg1" value="2" checked>Hayır</input>
+        </p>
+      </div>
+      <div class="alcohol">
+        <label for="yes_no_radio">Düzenli olarak alkollü içecek tüketiyor musunuz?</label>
+        <p>
+        <input type="radio" name="alcoho1" value="1">Evet</input>
+        <input type="radio" name="alcoho1" value="0" checked>Hayır</input>
+        </p>
+      </div>
+      <div class="bp">
+        <label for="yes_no_radio">Hipertansiyonunuz (Kan basıncı) var mı?</label>
+        <p>
+        <input type="radio" name="bp1" value="1">Evet</input>
+        <input type="radio" name="bp1" value="0" checked>Hayır</input>
+        </p>
+      </div>
+      <div class="chol">
+        <label for="yes_no_radio">Kolesterol tüketiminiz tavsiye edilenin üzerinde mi?</label>
+        <p>
+        <input type="radio" name="chol1" value="1">Evet</input>
+        <input type="radio" name="chol1" value="0" checked>Hayır</input>
+        </p>
+      </div>
+      <div class="suger">
+        <label for="yes_no_radio">Şeker tüketiminiz tavsiye edilenin üzerinde mi?</label>
+        <p>
+        <input type="radio" name="suger1" value="1">Evet</input>
+        <input type="radio" name="suger1" value="0" checked>Hayır</input>
+        </p>
+      </div>
+      <div class="fat">
+        <label for="yes_no_radio">Yağ tüketiminiz tavsiye edilenin üzerinde mi?</label>
+        <p>
+        <input type="radio" name="fat1" value="1">Evet</input>
+        <input type="radio" name="fat1" value="0" checked>Hayır</input>
+        </p>
+      </div>
+      <!-- <div class="submit">
+        <button>Submit</button>
+      </div> -->
+      <div class="submit">
+        <input type="submit" value="Gönder">
+        <input type="reset" value="Sıfırla">
+      </div>
+    </form>
+  </section>
+</main>
+<div class="bottom">
+  <div class="line"></div>
+  <p>
+    <a href="http://haithamalshari.github.io/">Haithm Alshari</a> tarafından
+    geliştirilmiş. Tüm hakları Saklıdır.
+  </p>
+</div>
+{% endblock %}

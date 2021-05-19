@@ -1,11 +1,19 @@
 {% extends "diabetes/layout.html" %} 
 {% load static %}
 {% block head %}
+<title>
+      Machine Learning Model to Diabetes Diagnosis Based on Health Behaviors
+</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 <script src="{% static 'js\script.js' %}"></script>{% endblock %}
 {% block body %}
+<div class="lan">
+    <a href="{% url 'index' %}">English</a>
+    <a href="{% url 'index_ar' %}">العربية</a>
+    <a href="{% url 'index_tr' %}">Türkçe</a>
+</div>  
 <div class="head">Machine Learning Model to predict Diabetes</div>
 <main>
   <div class="title">
@@ -31,7 +39,7 @@
         <option value="2">Other Hispanic</option>
         <option value="3">Non-Hispanic White</option>
         <option value="4">Non-Hispanic Black</option>
-        <option value="5">Other Race - Including Multi-Racia</option>
+        <option value="5">Other Race - Including Multi-Racial</option>
         </select>
       </div>
       <div class="marital">
@@ -43,7 +51,7 @@
         <option value="4">Separated</option>
         <option value="5">Never married</option>
         <option value="6">Living with partner</option>
-        <option value="7">Serious relationshi</option>
+        <option value="7">Serious relationship</option>
         </select>
       </div>
       <div class="edu">
@@ -107,21 +115,21 @@
         </p>
       </div>
       <div class="chol">
-        <label for="yes_no_radio">Is your Cholesterol consumtion above the recommended?</label>
+        <label for="yes_no_radio">Is your Cholesterol consumption above the recommended?</label>
         <p>
         <input type="radio" name="chol1" value="1">Yes</input>
         <input type="radio" name="chol1" value="0" checked>No</input>
         </p>
       </div>
       <div class="suger">
-        <label for="yes_no_radio">Is your Sugar consumtion above the recommended?</label>
+        <label for="yes_no_radio">Is your Sugar consumption above the recommended?</label>
         <p>
         <input type="radio" name="suger1" value="1">Yes</input>
         <input type="radio" name="suger1" value="0" checked>No</input>
         </p>
       </div>
       <div class="fat">
-        <label for="yes_no_radio">Is your fat consumtion above the recommended?</label>
+        <label for="yes_no_radio">Is your fat consumption above the recommended?</label>
         <p>
         <input type="radio" name="fat1" value="1">Yes</input>
         <input type="radio" name="fat1" value="0" checked>No</input>
