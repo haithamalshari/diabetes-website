@@ -40,7 +40,7 @@ main {
   margin-bottom: 2rem;
 }
 
-.title2 {
+.title {
   width: 60vw;
   position: relative;
   text-align: center;
@@ -49,10 +49,21 @@ main {
   /* padding-bottom: 3rem; */
 }
 
-.title {
-  width: 60vw;
-  padding-top: 1rem;
-  font-size: 2rem;
+.title h1 {
+  padding-right: 1rem;
+  text-align: right;
+  position: absolute;
+  bottom: 2rem;
+  /* right: -40rem; */
+  font-size: 1.7rem;
+  /* left: 0px; */
+  color: rgb(52, 51, 72);
+}
+
+.title img {
+  width: 50%;
+  height: auto;
+  transform: scaleX(-1);
 }
 
 section {
@@ -68,13 +79,13 @@ section {
   border-radius: 0.5rem;
   padding-top: 20px;
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
   flex-direction: column;
 }
 
 .secleft {
   /* padding-left: 2rem; */
-  text-align: right;
+  /* text-align: right; */
   flex: 3;
   color: white;
 }
@@ -84,55 +95,6 @@ section {
   text-align: center;
   color: rgb(214, 37, 81);
   flex: 2;
-}
-
-.feedd {
-  width: 60vw;
-  padding: 1rem;
-  padding-left: 2rem;
-  padding-top: 2rem;
-  border: 1px solid rgba(187, 187, 187, 0.651);
-  background: white;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  border-radius: 0.5rem;
-  padding-top: 20px;
-  margin-bottom: 2rem;
-}
-
-.feedd label {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-input[type="submit"] {
-  background: none;
-  /* box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2); */
-  border-radius: 0.5rem;
-  border: 1px solid rgb(52, 51, 72);
-  color: rgb(52, 51, 72);
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  box-shadow: rgba(25, 2, 46, 0.05) 0px 4px 16px,
-    rgba(25, 2, 46, 0.05) 0px 8px 32px;
-  font-family: "Almarai", sans-serif;
-}
-
-input[type="submit"]:hover {
-  color: white;
-  background-color: rgb(52, 51, 72);
-}
-
-input[type="radio"] {
-  margin: 4px 10px;
-  margin-bottom: 1rem;
-}
-
-.buttons {
-  width: 60vw;
-  display: flex;
 }
 
 .back {

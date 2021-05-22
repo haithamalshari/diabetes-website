@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  direction: rtl; /* Right to Left */
 }
 
 body {
@@ -14,7 +13,7 @@ body {
     rgba(24, 138, 141, 1) 88.1%
   ); */
   background-color: rgb(255, 255, 255);
-  font-family: "Almarai", sans-serif;
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -51,8 +50,12 @@ main {
 
 .title {
   width: 60vw;
-  padding-top: 1rem;
+  padding-top: 2rem;
   font-size: 2rem;
+}
+
+.thanks {
+  font-size: 3rem;
 }
 
 section {
@@ -74,7 +77,7 @@ section {
 
 .secleft {
   /* padding-left: 2rem; */
-  text-align: right;
+  text-align: left;
   flex: 3;
   color: white;
 }
@@ -86,48 +89,10 @@ section {
   flex: 2;
 }
 
-.feedd {
-  width: 60vw;
-  padding: 1rem;
-  padding-left: 2rem;
-  padding-top: 2rem;
-  border: 1px solid rgba(187, 187, 187, 0.651);
-  background: white;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  border-radius: 0.5rem;
-  padding-top: 20px;
-  margin-bottom: 2rem;
-}
-
-.feedd label {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-input[type="submit"] {
-  background: none;
-  /* box-shadow: 3px 3px 10px rgba(250, 240, 154, 0.2); */
-  border-radius: 0.5rem;
-  border: 1px solid rgb(52, 51, 72);
-  color: rgb(52, 51, 72);
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  box-shadow: rgba(25, 2, 46, 0.05) 0px 4px 16px,
-    rgba(25, 2, 46, 0.05) 0px 8px 32px;
-  font-family: "Almarai", sans-serif;
-}
-
-input[type="submit"]:hover {
-  color: white;
-  background-color: rgb(52, 51, 72);
-}
-
-input[type="radio"] {
-  margin: 4px 10px;
-  margin-bottom: 1rem;
+.feed {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+  font-size: 2rem;
 }
 
 .buttons {
@@ -136,8 +101,8 @@ input[type="radio"] {
 }
 
 .back {
-  margin-top: 1rem;
-  margin-right: 12%;
+  /* margin-top: 1rem; */
+  margin-right: 1rem;
   align-self: baseline;
   /* width: 10rem; */
   /* position: static; */

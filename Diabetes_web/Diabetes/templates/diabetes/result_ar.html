@@ -15,19 +15,34 @@
 <div class="head">نموذج تعلم الآلي للتنبؤ بمرض السكري</div>
 <div class="title">
   <h1>النتيجة</h1>
-  <img src="{% static 'imgs\form.svg' %}" class="imghead" />
+  <!-- <img src="{% static 'imgs\result.svg' %}" class="imghead" /> -->
 </div>
 <main>
   <section>
-    <div class="secleft">
-      <h1>نموذجنا توقع انك :</h1>
-      <h1>أحتمالية ان تكون مريض بالسكري هي :</h1>
+    <div class="sectop">
+      <h1 class="secleft">نموذجنا توقع انك :</h1>
+      <h1 class="secright">{{ result.pred }}</h1>
     </div>
-    <div class="secright">
-      <h1 class="result">{{ result.pred }}</h1>
-      <h1 class="result">{{ result.predprob }} %</h1>
+    <div class="secbottom">
+      <h1 class="secleft">أحتمالية ان تكون مريض بالسكري هي :</h1>
+      <h1 class="secright">{{ result.predprob }} %</h1>
     </div>
   </section>
+  <div class="feedd">
+    <form action="{% url 'feed_ar' %}" method="POST">
+      {% csrf_token %}
+      <div class="feed">
+          <label for="yes_no_radio">هل توقع نموذجنا صحيح ؟</label>
+          <p>
+          <input type="radio" name="feed" value="1" checked>نعم</input>
+          <input type="radio" name="feed" value="0">لا</input>
+          </p>
+        </div>
+        <div class="submit">
+          <input type="submit" value="تقديم">
+        </div>
+    </form>
+  </div>
   <div class="back">
     <a href="{% url 'index_ar' %}" class="back-btn">المحاولة مرة اخرى</a>
   </div>

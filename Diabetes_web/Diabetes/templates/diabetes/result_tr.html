@@ -12,21 +12,38 @@
 <div class="head">Diyabeti tahmin etmek için Makine Öğrenimi Modeli</div>
 <div class="title">
   <h1>Sonuç</h1>
-  <img src="{% static 'imgs\form.svg' %}" class="imghead" />
+  <!-- <img src="{% static 'imgs\result.svg' %}" class="imghead" /> -->
 </div>
 <main>
   <section>
-    <div class="secleft">
-      <h1>Modelimizin Siz olduğunuzu tahmini :</h1>
-      <h1>Diyabetik olma olasılığınız :</h1>
+    <div class="sectop">
+      <h1 class="secleft">Modelimizin Siz olduğunuzu tahmini :</h1>
+      <h1 class="secright">{{ result.pred }}</h1>
     </div>
-    <div class="secright">
-      <h1 class="result">{{ result.pred }}</h1>
-      <h1 class="result">{{ result.predprob }} %</h1>
+    <div class="secbottom">
+      <h1 class="secleft">Diyabetik olma olasılığınız :</h1>
+      <h1 class="secright">{{ result.predprob }} %</h1>
     </div>
   </section>
-  <div class="back">
-    <a href="{% url 'index_tr' %}" class="back-btn">Tekrar deneyin</a>
+  <div class="feedd">
+    <form action="{% url 'feed_tr' %}" method="POST">
+      {% csrf_token %}
+      <div class="feed">
+          <label for="yes_no_radio">Modelimizin tahmini doğru mu?</label>
+          <p>
+          <input type="radio" name="feed" value="1" checked>Evet</input>
+          <input type="radio" name="feed" value="0">Hayır</input>
+          </p>
+        </div>
+        <div class="submit">
+          <input type="submit" value="Gönder">
+        </div>
+    </form>
+  </div>
+  <div class="buttons">
+    <div class="back">
+      <a href="{% url 'index_tr' %}" class="back-btn">Tekrar deneyin</a>
+    </div>
   </div>
 </main>
 <div class="bottom">

@@ -8,4 +8,7 @@ urlpatterns = [
     path('result', views.diagnosis,name = "result"),
     path('result/ar', views.diagnosis_ar,name = "result_ar"),
     path('result/tr', views.diagnosis_tr,name = "result_tr"),
+    path('feed', views.feed,name = "feed"),
+    path('feed/ar', views.feed_ar,name = "feed_ar"),
+    path('feed/tr', views.feed_tr,name = "feed_tr"),
 ]

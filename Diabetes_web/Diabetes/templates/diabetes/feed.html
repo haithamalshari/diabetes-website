@@ -1,0 +1,31 @@
+{% extends "diabetes/layout.html" %} {% load static %} {% block head %}
+<title>
+  Machine Learning Model to Diabetes Diagnosis Based on Health Behaviors
+</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylefb.css' %}" />
+{% endblock %} {% block body %}
+<div class="head">Machine Learning Model to predict Diabetes</div>
+
+<main>
+  <div class="feed">
+    <h1>Thank you for your feedback.</h1>
+  </div>
+  <div class="buttons">
+    <div class="back">
+      <a href="{% url 'index' %}" class="back-btn">Try Again</a>
+    </div>
+  </div>
+</main>
+<div class="bottom">
+  <div class="line"></div>
+  <p>
+    Developed by <a href="http://haithamalshari.github.io/">Haithm Alshari</a>.
+    All rights reserved.
+  </p>
+</div>
+{% endblock %}

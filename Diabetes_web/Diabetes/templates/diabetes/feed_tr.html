@@ -1,0 +1,32 @@
+{% extends "diabetes/layout.html" %} {% load static %} {% block head %}
+<title>
+  Sağlık Davranışlarına Dayalı Diyabet Teşhisi için Makine Öğrenimi Modeli
+</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylefb.css' %}" />
+{% endblock %} {% block body %}
+<div class="head">Diyabeti tahmin etmek için Makine Öğrenimi Modeli</div>
+
+<main>
+  <div class="feed">
+    <h1 class="thanks">Geri bildiriminiz için teşekkür ederiz.</h1>
+    <!-- <h1>ederiz.</h1> -->
+  </div>
+  <div class="buttons">
+    <div class="back">
+      <a href="{% url 'index_tr' %}" class="back-btn">Tekrar deneyin</a>
+    </div>
+  </div>
+</main>
+<div class="bottom">
+  <div class="line"></div>
+  <p>
+    <a href="http://haithamalshari.github.io/">Haithm Alshari</a> tarafından
+    geliştirilmiş. Tüm hakları Saklıdır.
+  </p>
+</div>
+{% endblock %}
