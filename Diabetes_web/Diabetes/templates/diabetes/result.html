@@ -8,6 +8,7 @@
   rel="stylesheet"
 />
 <link rel="stylesheet" type="text/css" href="{% static 'css/stylers.css' %}" />
+<script src="{% static 'js\scriptrs.js' %}"></script>
 {% endblock %} {% block body %}
 <div class="head">Machine Learning Model to predict Diabetes</div>
 <div class="title">
@@ -22,7 +23,10 @@
     </div>
     <div class="secbottom">
       <h1 class="secleft">Your probability of being diabetic is :</h1>
-      <h1 class="secright">{{ result.predprob }} %</h1>
+      <div class="proba">
+        <h1 class="secright" id="prob">{{ result.predprob }}</h1>
+        <h1 class="secright"> %</h1>
+      </div>
     </div>
   </section>
   <div class="feedd">
@@ -49,7 +53,7 @@
 <div class="bottom">
   <div class="line"></div>
   <p>
-    Developed by <a href="http://haithamalshari.github.io/">Haithm Alshari</a>.
+    Developed by <a href="http://haithamalshari.github.io/" id="pro">Haithm Alshari</a>.
     All rights reserved.
   </p>
 </div>

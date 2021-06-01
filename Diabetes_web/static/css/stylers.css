@@ -74,15 +74,26 @@ section {
 .secleft {
   /* padding-left: 2rem; */
   text-align: left;
-  flex: 3;
+  /* flex: 3; */
   color: white;
 }
 
 .secright {
   /* padding-top: 2rem; */
   text-align: center;
+  color: rgb(0, 255, 255);
+}
+
+.red {
   color: rgb(214, 37, 81);
-  flex: 2;
+}
+
+.proba {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
 }
 
 .feedd {

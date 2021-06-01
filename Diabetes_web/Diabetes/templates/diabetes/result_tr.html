@@ -8,6 +8,7 @@
   rel="stylesheet"
 />
 <link rel="stylesheet" type="text/css" href="{% static 'css/stylers.css' %}" />
+<script src="{% static 'js\scriptrs.js' %}"></script>
 {% endblock %} {% block body %}
 <div class="head">Diyabeti tahmin etmek için Makine Öğrenimi Modeli</div>
 <div class="title">
@@ -22,7 +23,10 @@
     </div>
     <div class="secbottom">
       <h1 class="secleft">Diyabetik olma olasılığınız :</h1>
-      <h1 class="secright">{{ result.predprob }} %</h1>
+      <div class="proba">
+        <h1 class="secright" id="prob">{{ result.predprob }}</h1>
+        <h1 class="secright"> %</h1>
+      </div>
     </div>
   </section>
   <div class="feedd">
